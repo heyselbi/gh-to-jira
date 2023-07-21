@@ -1,0 +1,43 @@
+name: Create Jira Issue from release GH Release
+run-name: Creating new tag in quay based on pushed tag in Github.
+on:
+  workflow_dispatch:
+
+#--component="DSP"
+#--target_release="1.3.4"
+#--org=opendatahub-io
+#--labels=qe/verify
+#--jira_server=https://issues.redhat.com
+#--jira_project=JIRAPLAY
+#--jira_labels=MLOps
+#--jira_issue_type="Feature Request"
+#--jira_priority=Minor
+
+inputs:
+  component:
+    description: 'ODH Component'
+    required: true
+  target_release:
+    description: 'Target Downstream Release'
+    required: true
+
+jobs:
+  gh-to-jira:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+        with:
+          repository: https://github.com/HumairAK/gh-to-jira
+          fetch-depth: '0'
+      # Install dependencies
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.10
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Submit Jira
+        run: |
+          echo ${INPUT_COMPONENT} and release: ${INPUT_TARGET_RELEASE}
