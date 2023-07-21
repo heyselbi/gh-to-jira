@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       component:
+        default: 'Data Science Pipelines'
         description: 'ODH Component'
         required: true
       target_release:
@@ -11,12 +12,12 @@ on:
         required: true
       gh_org:
         default: 'opendatahub-io'
-        description: 'Target Downstream Release'
+        description: 'Upstream GH Org'
         required: true
       repos:
         default: |
           [{"repo_name":"data-science-pipelines","target_release":"v1.0.0","previous_release":"v0.2.2"},{"repo_name":"data-science-pipelines-operator","target_release":"v1.0.0","previous_release":"v0.2.1"}]
-        description: 'Target Downstream Release'
+        description: 'Upstream Source Repos & Tags'
         required: true
       labels:
         default: 'qe/verify'
@@ -25,23 +26,22 @@ on:
       jira_server:
         default: 'https://issues.redhat.com'
         required: true
-        description: ""
+        description: "Jira Server"
       jira_project:
+        default: "RHODS"
         required: true
-        description: ""
+        description: "Jira Project"
       jira_labels:
         required: true
-        description: ""
+        description: "Jira Labels to Add"
       jira_issue_type:
-        default: "Feature Request"
+        default: "Story"
         required: true
-        description: ""
+        description: "Jira Issue Type"
       jira_priority:
-        default: 'Minor'
+        default: 'Normal'
         required: true
-        description: ""
-
-
+        description: "Jira Priority to Set"
 
 jobs:
   gh-to-jira:
@@ -52,7 +52,6 @@ jobs:
         with:
           repository: HumairAK/gh-to-jira
           fetch-depth: '0'
-      # Install dependencies
       - name: Set up Python 3.10
         uses: actions/setup-python@v1
         with:
