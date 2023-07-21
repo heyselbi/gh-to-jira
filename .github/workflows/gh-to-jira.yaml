@@ -64,11 +64,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GTJ_GH_TOKEN }}
           JIRA_TOKEN: ${{ secrets.GTJ_JIRA_TOKEN }}
+          REPOSE: ${{ inputs.repos }}
         run: |
           python src --component="${{ inputs.component }}" \
             --target_release="${{ inputs.target_release }}" \
             --org="${{ inputs.gh_org }}" \
-            --repos="${{ inputs.repos }}" \
             --labels="${{ inputs.labels }}" \
             --jira_server="${{ inputs.jira_server }}" \
             --jira_project="${{ inputs.jira_project }}" \
