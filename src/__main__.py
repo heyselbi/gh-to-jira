@@ -18,6 +18,8 @@ def build_msg(prs: List[Dict[str, Union[Repository.Repository, str, PullRequest.
     for repo in prs:
         repo_name = repo["repo"].name
         repo_prs = repo["prs"]
+        if len(repo_prs) == 0:
+            continue
         target_release = repo["target_release"]
         previous_release = repo["previous_release"]
 
