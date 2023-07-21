@@ -79,7 +79,7 @@ jobs:
           python src --component=${{ inputs.component }} \
             --target_release=${{ inputs.target_release }} \
             --org=${{ inputs.gh_org }} \
-            --repos=${{ inputs.repos }} \
+            --repos="${{ inputs.repos }}" \
             --labels=${{ inputs.labels }} \
             --jira_server=${{ inputs.jira_server }} \
             --jira_project=${{ inputs.jira_project }} \
