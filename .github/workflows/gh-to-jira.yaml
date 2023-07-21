@@ -15,18 +15,7 @@ on:
         required: true
       repos:
         default: |
-          [
-            {
-              "repo_name": "data-science-pipelines",
-              "target_release": "v1.0.0",
-              "previous_release": "v0.2.2"
-            },
-            {
-              "repo_name": "data-science-pipelines-operator",
-              "target_release": "v1.0.0",
-              "previous_release": "v0.2.1"
-            }
-          ]
+          [{"repo_name":"data-science-pipelines","target_release":"v1.0.0","previous_release":"v0.2.2"},{"repo_name":"data-science-pipelines-operator","target_release":"v1.0.0","previous_release":"v0.2.1"}]
         description: 'Target Downstream Release'
         required: true
       labels:
