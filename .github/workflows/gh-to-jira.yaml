@@ -13,6 +13,22 @@ on:
         default: 'opendatahub-io'
         description: 'Target Downstream Release'
         required: true
+      repos:
+        default: |
+          [
+            {
+              "repo_name": "data-science-pipelines",
+              "target_release": "v1.0.0",
+              "previous_release": "v0.2.2"
+            },
+            {
+              "repo_name": "data-science-pipelines-operator",
+              "target_release": "v1.0.0",
+              "previous_release": "v0.2.1"
+            }
+          ]
+        description: 'Target Downstream Release'
+        required: true
       labels:
         default: 'qe/verify'
         required: true
@@ -60,6 +76,7 @@ jobs:
           python src --component=${{ inputs.component }} \
             --target_release=${{ inputs.target_release }} \
             --org=${{ inputs.gh_org }} \
+            --org=${{ inputs.repos }} \
             --labels=${{ inputs.labels }} \
             --jira_server=${{ inputs.jira_server }} \
             --jira_project=${{ inputs.jira_project }} \

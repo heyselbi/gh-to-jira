@@ -123,7 +123,7 @@ def parse_arguments():
     parser.add_argument("--dev", dest="dev",
                         action="store_true",
                         help="Use this flag to store gh data in cache after first run. This will "
-                             "reduce the number of api calls made to the GH api in consecutive runs.", required=True)
+                             "reduce the number of api calls made to the GH api in consecutive runs.", required=False)
 
     parser.add_argument("--repos", dest="repos",
                         help="A JSON of the form [ { repo_name: { previous_release: str, target_release)}, .. ]",
