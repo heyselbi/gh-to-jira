@@ -9,16 +9,32 @@ on:
       target_release:
         description: 'Target Downstream Release'
         required: true
-
-#--component="DSP"
-#--target_release="1.3.4"
-#--org=opendatahub-io
-#--labels=qe/verify
-#--jira_server=https://issues.redhat.com
-#--jira_project=JIRAPLAY
-#--jira_labels=MLOps
-#--jira_issue_type="Feature Request"
-#--jira_priority=Minor
+      gh_org:
+        default: 'opendatahub-io'
+        description: 'Target Downstream Release'
+        required: true
+      labels:
+        default: 'qe/verify'
+        required: true
+        description: ""
+      jira_server:
+        default: 'https://issues.redhat.com'
+        required: true
+        description: ""
+      jira_project:
+        required: true
+        description: ""
+      jira_labels:
+        required: true
+        description: ""
+      jira_issue_type:
+        default: "Feature Request"
+        required: true
+        description: ""
+      jira_priority:
+        default: 'Minor'
+        required: true
+        description: ""
 
 
 
@@ -41,4 +57,5 @@ jobs:
           pip install -r requirements.txt
       - name: Submit Jira
         run: |
-          echo "${{ github.event.inputs.component }}  and release: ${{ inputs.target_release }}}"
+          ls
+          echo "${{ inputs.component }}  and release: ${{ inputs.target_release }}"
