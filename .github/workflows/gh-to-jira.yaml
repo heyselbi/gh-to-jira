@@ -1,5 +1,5 @@
-name: Create Jira Issue from release GH Release
-run-name: Creating new tag in quay based on pushed tag in Github.
+name: Create Jira Issue from GH Release
+run-name: GH Release to Jira.
 on:
   workflow_dispatch:
     inputs:
