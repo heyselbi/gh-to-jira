@@ -2,6 +2,13 @@ name: Create Jira Issue from release GH Release
 run-name: Creating new tag in quay based on pushed tag in Github.
 on:
   workflow_dispatch:
+    inputs:
+      component:
+        description: 'ODH Component'
+        required: true
+      target_release:
+        description: 'Target Downstream Release'
+        required: true
 
 #--component="DSP"
 #--target_release="1.3.4"
@@ -13,13 +20,7 @@ on:
 #--jira_issue_type="Feature Request"
 #--jira_priority=Minor
 
-inputs:
-  component:
-    description: 'ODH Component'
-    required: true
-  target_release:
-    description: 'Target Downstream Release'
-    required: true
+
 
 jobs:
   gh-to-jira:
