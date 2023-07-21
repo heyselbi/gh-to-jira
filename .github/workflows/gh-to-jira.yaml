@@ -64,7 +64,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GTJ_GH_TOKEN }}
           JIRA_TOKEN: ${{ secrets.GTJ_JIRA_TOKEN }}
-          REPOSE: ${{ inputs.repos }}
+          REPOS: ${{ inputs.repos }}
         run: |
           python src --component="${{ inputs.component }}" \
             --target_release="${{ inputs.target_release }}" \
