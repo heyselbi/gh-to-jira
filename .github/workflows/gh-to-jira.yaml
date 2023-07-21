@@ -41,4 +41,4 @@ jobs:
           pip install -r requirements.txt
       - name: Submit Jira
         run: |
-          echo ${INPUT_COMPONENT} and release: ${INPUT_TARGET_RELEASE}
+          echo "${{ github.event.inputs.component }}  and release: ${{ inputs.target_release }}}"
