@@ -32,6 +32,7 @@ on:
         required: true
         description: "Jira Project"
       jira_labels:
+        default: "MLOps"
         required: true
         description: "Jira Labels to Add"
       jira_issue_type:
