@@ -57,5 +57,12 @@ jobs:
           pip install -r requirements.txt
       - name: Submit Jira
         run: |
-          ls
-          echo "${{ inputs.component }}  and release: ${{ inputs.target_release }}"
+          python src --component=${{ inputs.component }} \
+            --target_release=${{ inputs.target_release }} \
+            --org=${{ inputs.gh_org }} \
+            --labels=${{ inputs.labels }} \
+            --jira_server=${{ inputs.jira_server }} \
+            --jira_project=${{ inputs.jira_project }} \
+            --jira_labels=${{ inputs.jira_labels }} \
+            --jira_issue_type=${{ inputs.jira_issue_type }} \
+            --jira_priority=${{ inputs.jira_priority }}
