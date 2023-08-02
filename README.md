@@ -8,11 +8,11 @@ This script can be utilized by combining it with a GH workflow which can be foun
 
 The workflow takes the following inputs: 
 
-* ODH Component (example DSP)
-* Target Release for Rhods (e.g. v1.31)
+* ODH Component (example DSP), this is used in the Jira title
+* Target Release for RHODs (e.g. v1.31)
 * PR Filter labels 
 * Jira info (server, project, jira labels, issue type, priority level)
-* Jira Token
+* Jira/GH Token (should be added as a [GH secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets) `GITHUB_TOKEN`, `JIRA_TOKEN`)
 * Source Github Organization
 * Source repos and tags in a json example:
 
