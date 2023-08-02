@@ -4,8 +4,7 @@ This repo provides a workflow that can be used to forward a set of PRs made with
 
 
 ## How it works 
-
-The following diagram shows the source material (right) and the resulting Jira (left). 
+This script can be utilized by combining it with a GH workflow which can be found [here](https://github.com/HumairAK/gh-to-jira/blob/main/.github/workflows/gh-to-jira.yaml).
 
 The workflow takes the following inputs: 
 
@@ -16,6 +15,7 @@ The workflow takes the following inputs:
 * Jira Token
 * Source Github Organization
 * Source repos and tags in a json example:
+
 ```json
 [
   {
@@ -57,11 +57,13 @@ You can see the releases for the above repos here:
 * [data-science-pipelines-operator](https://github.com/opendatahub-io/data-science-pipelines-operator/releases)
 * [data-science-pipelines](https://github.com/opendatahub-io/data-science-pipelines/releases)
 
-The following diagram shows a graphic illustration of the Release Sources and the resutling Jira: 
+The following diagram shows a graphic illustration of the Release Sources and the resulting Jira: 
 
 ![](assets/jira-gh-repos.png)
 
 ### Usage: 
+
+The script utilized within the workflow has the following usage.
 
 ```bash
 usage:  [-h] --component COMPONENT --target_release TARGET_RELEASE --org ORGANIZATION --labels PR_FILTER_LABELS --jira_server JIRA_SERVER --jira_project JIRA_PROJECT --jira_labels JIRA_LABELS --jira_issue_type JIRA_ISSUE_TYPE
@@ -97,4 +99,3 @@ options:
 
 A template GitHub workflow can be found [here](https://github.com/HumairAK/gh-to-jira/blob/main/.github/workflows/gh-to-jira.yaml). 
 ![](assets/workflow.png)
-
